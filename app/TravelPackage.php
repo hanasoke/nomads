@@ -7,8 +7,6 @@ use Illuminate\Database\SoftDeletes;
 
 class TravelPackage extends Model
 {
-    use SoftDeletes;
-
     protected $fillable = [
         'title', 'slug', 'location', 'about', 'featured_event', 
         'language', 'foods', 'departure_date', 'duration', 
