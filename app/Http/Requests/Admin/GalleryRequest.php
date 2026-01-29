@@ -23,9 +23,18 @@ class GalleryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'travel_packages_id' => 'required|integer|exists:travel_packages,id',
-            'image' => 'required|image'
-        ];
+        if($this->method() === 'POST') {
+            return [
+                'travel_packages_id' => 'required|integer|exists:travel_packages,id',
+                'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            ];
+        }
+
+        if($this->method() === 'PUT' || $this->method() === 'PATCH') {
+            return [
+                'travel_packages_id' => 'required|integer|exists:travel_packages,id',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            ];
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\GalleryRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Gallery;
 use App\TravelPackage;
 use Illuminate\Http\Request;
@@ -94,16 +95,33 @@ class GalleryController extends Controller
      */
     public function update(GalleryRequest $request, $id)
     {
+        $item = Gallery::findOrFail($id);
         $data = $request->all();
-        $data['image'] = $request->file('image')->store(
-            'assets/gallery', 'public'
-        );
+        
+        // CEK : apakah upload gambar baru?
+        if($request->hasFile('image')) {
+
+            // (opsional) hapus file lama dari storage 
+            if($item->image && Storage::disk('public')->exists($item->image)) {
+                Storage::disk('public')->delete($item->image);
+            } 
+
+            $data['image'] = $request->file('image')->store(
+                'assets/gallery', 
+                'public'
+            );
+        } else {
+            // pakai gambar lama 
+            $data['image'] = $item->image;
+        }
 
         $item = Gallery::findOrFail($id);
 
         $item->update($data);
 
-        return redirect()->route('gallery.index');
+        return redirect()
+            ->route('gallery.index')
+            ->with('success', 'Gallery berhasil diperbarui');
     }
 
     /**

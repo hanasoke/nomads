@@ -36,7 +36,12 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="image">Image</label>
+                    <label for="image">Gambar Saat Ini</label>
+                    <br>
+                    <img src="{{ Storage::url($item->image) }}" class="img-thumbnail mb-2" width="200">
+                </div>
+                <div class="form-group">
+                    <label for="image">Ganti Image (opsional)</label>
                     <input type="file" class="form-control" name="image" id="image" placeholder="Image" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
