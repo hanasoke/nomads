@@ -55,7 +55,9 @@ class GalleryController extends Controller
 
 
         Gallery::create($data);
-        return redirect()->route('gallery.index');
+        return redirect()
+            ->route('gallery.index')
+            ->with('success', 'Gallery berhasil ditambah');
     }
 
     /**

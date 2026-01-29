@@ -10,12 +10,15 @@
     </div>
 
     @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach 
             </ul>
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
         </div>
     @endif 
 
@@ -25,7 +28,7 @@
                 @csrf 
                 <div class="form-group">
                     <label for="travel_packages_id">Paket Travel</label>
-                    <select name="travel_packages_id" required class="form-control">
+                    <select name="travel_packages_id" class="form-control">
                         <option value="">Pilih Paket Travel</option>
                         @foreach ($travel_packages as $travel_package)
                             <option value="{{ $travel_package->id}}">
