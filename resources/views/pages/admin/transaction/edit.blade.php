@@ -4,36 +4,25 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <ul class="mb-0">
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach 
-            </ul>
-            <button type="button" class="close" data-dismiss="alert">
-                <span>&times;</span>
-            </button>
-        </div>
-    @endif 
-
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Edit Paket Travel {{ $item->title }}</h1>
     </div>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach 
-            </ul>
-        </div>
-    @endif 
-
     <div class="card shadow">
         <div class="card-body">
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <b>
+                        @foreach($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach 
+                    </b>
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                </div>
+            @endif 
             <form action="{{ route('transaction.update', $item->id) }}" method="post">
                 @method('PUT')
                 @csrf 
