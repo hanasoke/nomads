@@ -100,7 +100,9 @@ class TransactionController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('transaction.index');
+        return redirect()
+            ->route('transaction.index')
+            ->with('success', 'Transaction has been successfully updated');
     }
 
     /**
