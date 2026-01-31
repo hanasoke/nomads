@@ -99,51 +99,60 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                <div class="card card-details card-right">
-                    <h2>Members are going</h2>
-                    <div class="members my-2">
-                        <img src="frontend/images/member1.png" alt="" class="member-image mr-1">
-                        <img src="frontend/images/member2.png" alt="" class="member-image mr-1">
-                        <img src="frontend/images/member3.png" alt="" class="member-image mr-1">
-                        <img src="frontend/images/member4.png" alt="" class="member-image mr-1">
-                        <img src="frontend/images/member5.png" alt="" class="member-image mr-1">
+                    <div class="card card-details card-right">
+                        <h2>Members are going</h2>
+                        <div class="members my-2">
+                            <img src="frontend/images/member1.png" alt="" class="member-image mr-1">
+                            <img src="frontend/images/member2.png" alt="" class="member-image mr-1">
+                            <img src="frontend/images/member3.png" alt="" class="member-image mr-1">
+                            <img src="frontend/images/member4.png" alt="" class="member-image mr-1">
+                            <img src="frontend/images/member5.png" alt="" class="member-image mr-1">
+                        </div>
+                        <hr>
+                        <h2>Trip Information</h2>
+                        <div class="trip-informations">
+                            <table>
+                                <tr>
+                                    <th width="50%">Date of Departure</th>
+                                    <td width="50%" class="text-right">
+                                        {{\Carbon\Carbon::create($item->date_of_departure)->format('F n, Y') }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">Duration</th>
+                                    <td width="50%" class="text-right">
+                                        {{ $item->duration }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">Type</th>
+                                    <td width="50%" class="text-right">
+                                        {{ $item->type }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">Price</th>
+                                    <td width="50%" class="text-right">
+                                        ${{ $item->price }},00 / person 
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <hr>
-                    <h2>Trip Information</h2>
-                    <div class="trip-informations">
-                        <table>
-                            <tr>
-                                <th width="50%">Date of Departure</th>
-                                <td width="50%" class="text-right">
-                                    {{\Carbon\Carbon::create($item->date_of_departure)->format('F n, Y') }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th width="50%">Duration</th>
-                                <td width="50%" class="text-right">
-                                    4D 3N
-                                </td>
-                            </tr>
-                            <tr>
-                                <th width="50%">Type</th>
-                                <td width="50%" class="text-right">
-                                    Open Trip
-                                </td>
-                            </tr>
-                            <tr>
-                                <th width="50%">Price</th>
-                                <td width="50%" class="text-right">
-                                    $80,00 / person
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="join-container">
+                        @auth 
+                            <form action="" method="post">
+                                <button class="btn btn-block btn-join-now mt-3 py-2" type="submit">
+                                    Join Now
+                                </button>
+                            </form>
+                        @endauth
+                        @guest 
+                            <a href="{{ route('login') }}" class="btn btn-block btn-join-now mt-3 py-2">
+                                Login or Register to Join 
+                            </a>
+                        @endguest 
                     </div>
-                </div>
-                <div class="join-container">
-                    <a href="{{ route('checkout') }}" class="btn btn-block btn-join-now mt-3 py-2">
-                    Join Now
-                    </a>
-                </div>
                 </div>
             </div>
         </div>
