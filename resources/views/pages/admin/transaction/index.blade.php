@@ -29,9 +29,9 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->travel_package->title }}</td>
-                                <td>{{ $item->user->name }}</td>
-                                <td>{{ $item->additional_visa }}</td>
-                                <td>{{ $item->transaction_total }}</td>
+                                <td>{{ $item->user->name ?? '' }}</td>
+                                <td>${{ $item->additional_visa }}</td>
+                                <td>${{ $item->transaction_total }}</td>
                                 <td>{{ $item->transaction_status }}</td>
                                 <td>
                                     <a href="{{ route('transaction.show', $item->id) }}" class="btn btn-primary">
