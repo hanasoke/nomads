@@ -34,7 +34,7 @@ Route::middleware(['auth', 'user'])->group(function(){
         ->name('checkout-remove')
         ->middleware(['auth', 'verified']);
         
-    Route::get('/checkout/success', 'CheckoutController@success')
+    Route::get('/checkout/confirm{id}', 'CheckoutController@success')
         ->name('checkout-success')
         ->middleware(['auth', 'verified']);
 });
