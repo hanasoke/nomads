@@ -25,37 +25,37 @@
     <main>
     <div class="container">
         <section class="section-stats row justify-content-center" id="stats">
-        <div class="col-3 col-md-2 stats-detail">
-            <h2>20K</h2>
-            <p>Members</p>
-        </div>
-        <div class="col-3 col-md-2 stats-detail">
-            <h2>12</h2>
-            <p>Countries</p>
-        </div>
-        <div class="col-3 col-md-2 stats-detail">
-            <h2>3K</h2>
-            <p>Hotel</p>
-        </div>
-        <div class="col-3 col-md-2 stats-detail">
-            <h2>72</h2>
-            <p>Partners</p>
-        </div>
+            <div class="col-3 col-md-2 stats-detail">
+                <h2>20K</h2>
+                <p>Members</p>
+            </div>
+            <div class="col-3 col-md-2 stats-detail">
+                <h2>12</h2>
+                <p>Countries</p>
+            </div>
+            <div class="col-3 col-md-2 stats-detail">
+                <h2>3K</h2>
+                <p>Hotel</p>
+            </div>
+            <div class="col-3 col-md-2 stats-detail">
+                <h2>72</h2>
+                <p>Partners</p>
+            </div>
         </section>
     </div>
 
     <section class="section-popular" id="popular">
         <div class="container">
-        <div class="row">
-            <div class="col text-center section-popular-heading">
-            <h2>Wisata Popular</h2>
-            <p>
-                Something that you never try
-                <br>
-                before in this world
-            </p>
+            <div class="row">
+                <div class="col text-center section-popular-heading">
+                <h2>Wisata Popular</h2>
+                <p>
+                    Something that you never try
+                    <br>
+                    before in this world
+                </p>
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -101,16 +101,16 @@
 
     <section class="section-testimonial-heading" id="testimonialHeading">
         <div class="container">
-        <div class="row">
-            <div class="col text-center">
-            <h2>They Are Loving Us</h2>
-            <p>
-                Moments were giving them
-                <br>
-                the best experience
-            </p>
+            <div class="row">
+                <div class="col text-center">
+                <h2>They Are Loving Us</h2>
+                <p>
+                    Moments were giving them
+                    <br>
+                    the best experience
+                </p>
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
