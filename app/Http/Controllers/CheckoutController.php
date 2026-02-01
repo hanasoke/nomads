@@ -28,7 +28,7 @@ class CheckoutController extends Controller
 
         $transaction =  Transaction::create([
             'travel_packages_id' =>  $id,
-            'users_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'additional_visa' => 0,
             'transaction_total' => $travel_package->price,
             'transaction_status' => 'IN_CART'
@@ -63,7 +63,7 @@ class CheckoutController extends Controller
         $transaction->save();
         $item->delete();
 
-        return redirect()->route('checkout', $item->transaction_id);
+        return redirect()->route('checkout', $item->transactions_id);
     }
 
     public function create(Request $request, $id)
