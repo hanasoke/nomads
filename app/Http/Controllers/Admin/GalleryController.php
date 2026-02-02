@@ -137,6 +137,8 @@ class GalleryController extends Controller
         $item = Gallery::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('gallery.index');
+        return redirect()
+            ->route('gallery.index')
+            ->with('success', 'Gallery has been deleted');;
     }
 }

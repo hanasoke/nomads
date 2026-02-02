@@ -116,6 +116,8 @@ class TransactionController extends Controller
         $item = Transaction::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('transaction.index');
+        return redirect()
+            ->route('transaction.index')
+            ->with('success', 'Transaction has been deleted');
     }
 }

@@ -47,7 +47,9 @@ class TravelPackageController extends Controller
         $data['slug'] = Str::slug($request->title);
 
         TravelPackage::create($data);
-        return redirect()->route('travel-package.index');
+        return redirect()
+            ->route('travel-package.index')
+            ->with('success', 'Travel package has been added');
     }
 
     /**
@@ -92,7 +94,9 @@ class TravelPackageController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('travel-package.index');
+        return redirect()
+            ->route('travel-package.index')
+            ->with('success', 'Travel package has been updated');
     }
 
     /**
@@ -106,6 +110,8 @@ class TravelPackageController extends Controller
         $item = TravelPackage::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('travel-package.index');
+        return redirect()
+            ->route('travel-package.index')
+            ->with('success', 'Travel package has been deleted');;
     }
 }
