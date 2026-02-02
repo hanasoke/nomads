@@ -48,19 +48,61 @@
 
     @auth 
         <!--  Mobile Button -->
-        <form class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
+        <!-- <form class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
             @csrf
             <button class="btn btn-login my-2 my-sm-0">
                 Keluar
             </button>
-        </form>
+        </form> -->
+
+        <div class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
+            <button class="btn btn-login my-2 my-sm-0" data-toggle="modal" data-target="#logoutModal">
+                Keluar
+            </button>
+        </div>
+
         <!-- Desktop Button -->
-        <form class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{ url('logout') }}" method="POST">
+        <!-- <form class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{ url('logout') }}" method="POST">
             @csrf
             <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
                 Keluar
             </button>
-        </form>
+        </form> -->
+        <div class="form-inline my-2 my-lg-0 d-none d-md-block" method="POST">
+            <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" data-toggle="modal" data-target="#logoutModal">
+                Keluar
+            </button>
+        </div>
+
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        Apakah kamu yakin ingin keluar?
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Batal
+                        </button>
+                        <form action="{{ url('logout') }}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger">
+                                Keluar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     @endauth
     </div>
 </nav>
