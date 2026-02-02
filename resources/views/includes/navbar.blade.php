@@ -48,13 +48,6 @@
 
     @auth 
         <!--  Mobile Button -->
-        <!-- <form class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
-            @csrf
-            <button class="btn btn-login my-2 my-sm-0">
-                Keluar
-            </button>
-        </form> -->
-
         <div class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
             <button class="btn btn-login my-2 my-sm-0" data-toggle="modal" data-target="#logoutModal">
                 Keluar
@@ -62,12 +55,6 @@
         </div>
 
         <!-- Desktop Button -->
-        <!-- <form class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{ url('logout') }}" method="POST">
-            @csrf
-            <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
-                Keluar
-            </button>
-        </form> -->
         <div class="form-inline my-2 my-lg-0 d-none d-md-block" method="POST">
             <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" data-toggle="modal" data-target="#logoutModal">
                 Keluar
