@@ -23,15 +23,17 @@
         <div class="card-body">
             <table class="table table-bordered">
                 <tr>
-                    <th>ID</th>
-                    <td>{{ $item->id }}</td>
                     <tr>
                         <th>Paket Travel</th>
                         <td>{{ $item->travel_package->title }}</td>
                     </tr>
                     <tr>
-                        <th>Pembeli</th>
+                        <th>Nama Pembeli</th>
                         <td>{{ $item->user->name ?? '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Username Pembeli</th>
+                        <td>{{ $item->user->username ?? '-' }}</td>
                     </tr>
                     <tr>
                         <th>Additional Visa</th>
@@ -58,7 +60,7 @@
                                 </tr>
                                 @foreach($item->details as $detail)
                                     <tr>
-                                        <td>{{ $detail->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $detail->username }}</td>
                                         <td>{{ $detail->nationality }}</td>
                                         <td>{{ $detail->is_visa ? '30 Days' : 'N/A' }}</td>
