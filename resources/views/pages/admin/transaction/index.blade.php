@@ -49,13 +49,37 @@
                                     <a href="{{ route('transaction.edit', $item->id) }}" class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a>
-                                    <form action="{{ route('transaction.destroy', $item->id) }}" method="post" class="d-inline">
-                                        @csrf 
-                                        @method('delete')
-                                        <button class="btn btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#Delete{{ $item->id }}">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+
+                                    <!-- Delete Modal-->
+                                    <div class="modal fade" id="Delete{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="DeleteTransactionPackage{{ $item->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="DeleteTransactionPackage{{ $item->id }}">Delete Travel Package</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">Are you want to delete <b>{{ $item->travel_package->title }}</b> transaction of travel package from <b>{{$item->user->name}}</b> ?</div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                    <form action="{{ route('transaction.destroy', $item->id) }}" method="post" class="d-inline">
+                                                        @csrf 
+                                                        @method('delete')
+                                                        <button class="btn btn-danger">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
                                 </td>
                             </tr>
                         @empty 
