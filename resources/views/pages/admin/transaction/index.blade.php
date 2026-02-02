@@ -24,7 +24,7 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Travel</th>
                             <th>User</th>
                             <th>Visa</th>
@@ -36,7 +36,7 @@
                     <tbody>
                         @forelse($items as $item)
                             <tr>
-                                <td>{{ $item->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->travel_package->title }}</td>
                                 <td>{{ $item->user->name ?? '' }}</td>
                                 <td>${{ $item->additional_visa }}</td>
@@ -78,7 +78,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     
                                 </td>
                             </tr>
@@ -94,7 +93,6 @@
             </div>
         </div>
     </div>
-
     
 </div>
 <!-- /.container-fluid -->
