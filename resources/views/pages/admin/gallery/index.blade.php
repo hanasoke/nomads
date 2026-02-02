@@ -46,22 +46,43 @@
                                     <a href="{{ route('gallery.edit', $item->id) }}" class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a>
-                                    <form action="{{ route('gallery.destroy', $item->id) }}" method="post" class="d-inline">
-                                        @csrf 
-                                        @method('delete')
-                                        <button class="btn btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#Delete{{ $item->id }}">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+
+                                    <!-- Delete Modal-->
+                                    <div class="modal fade" id="Delete{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="DeleteGallery{{ $item->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="DeleteGallery{{ $item->id }}">Delete Gallery</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">Are you want to delete <b>{{ $item->travel_packages->title }}</b> gallery ?</div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                    <form action="{{ route('gallery.destroy', $item->id) }}" method="post" class="d-inline">
+                                                        @csrf 
+                                                        @method('delete')
+                                                        <button class="btn btn-danger">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @empty 
                             <tr>
                                 <td colspan="7" class="text-center">
-                                    Data Kosong
+                                    Empy Data 
                                 </td>
                             </tr>
-
                         @endforelse 
                     </tbody>
                 </table>

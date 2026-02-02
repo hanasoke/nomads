@@ -47,14 +47,11 @@
                                     <a href="{{ route('travel-package.edit', $item->id) }}" class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a>
-                                    <!-- <form action="{{ route('travel-package.destroy', $item->id) }}" method="post" class="d-inline">
-                                        @csrf 
-                                        @method('delete') -->
-                                        <button class="btn btn-danger" data-toggle="modal" data-target="#Delete{{ $item->id }}">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    <!-- </form> -->
-                                    <!-- Logout Modal-->
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#Delete{{ $item->id }}">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+
+                                    <!-- Delete Modal-->
                                     <div class="modal fade" id="Delete{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="DeleteTravelPackage{{ $item->id }}"
                                         aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -71,7 +68,7 @@
                                                     <form action="{{ route('travel-package.destroy', $item->id) }}" method="post" class="d-inline">
                                                         @csrf 
                                                         @method('delete')
-                                                        <button class="btn btn-danger" data-toggle="modal" data-target="#Delete{{ $item->id }}">
+                                                        <button class="btn btn-danger">
                                                             Delete
                                                         </button>
                                                     </form>
@@ -79,14 +76,12 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </td>
-
                             </tr>
                         @empty 
                             <tr>
                                 <td colspan="7" class="text-center">
-                                    Data Kosong
+                                    Empty Data
                                 </td>
                             </tr>
 
