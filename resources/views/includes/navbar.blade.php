@@ -1,96 +1,96 @@
 <!-- Navbar -->
 <div class="container">
-<nav class="row navbar navbar-expand-lg navbar-light bg-white">
-    <a href="{{ route('home') }}" class="navbar-brand">
-    <img src="{{ url('frontend/images/logo_nomads.png') }}" alt="Logo NOMADS">
-    </a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navb">
-    <ul class="navbar-nav ml-auto mr-3">
-        <li class="nav-item mx md-2">
-        <a href="#" class="nav-link active">Home</a>
-        </li>
-        <li class="nav-item mx md-2">
-        <a href="#" class="nav-link">Paket Travel</a>
-        </li>
-        <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-            Services
+    <nav class="row navbar navbar-expand-lg navbar-light bg-white">
+        <a href="{{ route('home') }}" class="navbar-brand">
+            <img src="{{ url('frontend/images/logo_nomads.png') }}" alt="Logo NOMADS">
         </a>
-        <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Link</a>
-            <a href="#" class="dropdown-item">Link</a>
-            <a href="#" class="dropdown-item">Link</a>
-        </div>
-        </li>
-        <li class="nav-item mx md-2">
-        <a href="#" class="nav-link">Testimonial</a>
-        </li>
-    </ul>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    @guest 
-        <!--  Mobile Button -->
-        <form class="form-inline d-sm-block d-md-none">
-            <button class="btn btn-login my-2 my-sm-0 px-4" type="button" onclick="event.preventDefault(); location.href='{{ url('login') }}';">
-                Masuk
-            </button>
-        </form>
-        <!-- Desktop Button -->
-        <form class="form-inline my-2 my-lg-0 d-none d-md-block">
-            <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" type="button" onclick="event.preventDefault(); location.href='{{ url('login') }}' ">
-                Masuk
-            </button>
-        </form>
-    @endguest
-
-    @auth 
-        <!--  Mobile Button -->
-        <div class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
-            <button class="btn btn-login my-2 my-sm-0" data-toggle="modal" data-target="#logoutModal">
-                Keluar
-            </button>
-        </div>
-
-        <!-- Desktop Button -->
-        <div class="form-inline my-2 my-lg-0 d-none d-md-block" method="POST">
-            <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" data-toggle="modal" data-target="#logoutModal">
-                Keluar
-            </button>
-        </div>
-
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span>&times;</span>
-                        </button>
+        <div class="collapse navbar-collapse" id="navb">
+            <ul class="navbar-nav ml-auto mr-3">
+                <li class="nav-item mx md-2">
+                    <a href="#" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item mx md-2">
+                    <a href="#" class="nav-link">Paket Travel</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                        Services
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Link</a>
+                        <a href="#" class="dropdown-item">Link</a>
+                        <a href="#" class="dropdown-item">Link</a>
                     </div>
+                </li>
+                <li class="nav-item mx md-2">
+                    <a href="#" class="nav-link">Testimonial</a>
+                </li>
+            </ul>
 
-                    <div class="modal-body">
-                        Apakah kamu yakin ingin keluar?
-                    </div>
+        @guest 
+            <!--  Mobile Button -->
+            <form class="form-inline d-sm-block d-md-none">
+                <button class="btn btn-login my-2 my-sm-0 px-4" type="button" onclick="event.preventDefault(); location.href='{{ url('login') }}';">
+                    Masuk
+                </button>
+            </form>
+            <!-- Desktop Button -->
+            <form class="form-inline my-2 my-lg-0 d-none d-md-block">
+                <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" type="button" onclick="event.preventDefault(); location.href='{{ url('login') }}' ">
+                    Masuk
+                </button>
+            </form>
+        @endguest
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            Batal
-                        </button>
-                        <form action="{{ url('logout') }}" method="POST">
-                            @csrf
-                            <button class="btn btn-danger">
-                                Keluar
+        @auth 
+            <!--  Mobile Button -->
+            <div class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
+                <button class="btn btn-login my-2 my-sm-0" data-toggle="modal" data-target="#logoutModal">
+                    Keluar
+                </button>
+            </div>
+
+            <!-- Desktop Button -->
+            <div class="form-inline my-2 my-lg-0 d-none d-md-block" method="POST">
+                <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" data-toggle="modal" data-target="#logoutModal">
+                    Keluar
+                </button>
+            </div>
+
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
                             </button>
-                        </form>
+                        </div>
+
+                        <div class="modal-body">
+                            Apakah kamu yakin ingin keluar?
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Batal
+                            </button>
+                            <form action="{{ url('logout') }}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger">
+                                    Keluar
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    @endauth
-    </div>
-</nav>
+        @endauth
+        </div>
+    </nav>
 </div>
