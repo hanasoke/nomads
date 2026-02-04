@@ -112,7 +112,7 @@
                           <tbody>
                             <tr>
                               <td style="width:150px;">
-                                <img alt="" src="images/logo@2x.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" height="auto" />
+                                <img alt="" src="{{ url('frontend/images/logo@2x.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" height="auto" />
                               </td>
                             </tr>
                           </tbody>
@@ -168,7 +168,7 @@
                           <tbody>
                             <tr>
                               <td style="width:550px;">
-                                <img alt="" src="images/nusa_penida@2x.jpg" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" height="auto" />
+                                <img alt="" src="{{ url($data->travel_package->galleries[0]->image) }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" height="auto" />
                               </td>
                             </tr>
                           </tbody>
@@ -200,27 +200,23 @@
                           <tbody>
                             <tr>
                               <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                                <div style="font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;line-height:20px;text-align:left;color:#071C4D;">Hi, Angga Risky <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID <strong>#22081996</strong></div>
+                                <div style="font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;line-height:20px;text-align:left;color:#071C4D;">Hi, {{ $data->user->name }} <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID <strong> {{ $data->id }}</strong></div>
                               </td>
                             </tr>
                             <tr>
                               <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
                                 <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#071C4D;font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;line-height:28px;table-layout:auto;width:100%;border:none;">
-                                  <tr>
-                                    <td colspan="3">Members</td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <strong>Angga Risky</strong>
-                                    </td>
-                                    <td style="text-align: right"> Singapore, SG </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <strong>Galih Pratama</strong>
-                                    </td>
-                                    <td style="text-align: right"> Singapore, SG </td>
-                                  </tr>
+                                    <tr>
+                                        <td colspan="3">Members</td>
+                                    </tr>
+                                    @foreach ($data->details as $item)
+                                        <tr>
+                                            <td>
+                                                <strong>{{ $item->username }}</strong>
+                                            </td>
+                                            <td style="text-align: right">{{ $item->nationality }}</td>
+                                        </tr>
+                                    @endforeach
                                 </table>
                               </td>
                             </tr>
@@ -234,13 +230,13 @@
                                     <td>
                                       <strong>Departure</strong>
                                     </td>
-                                    <td style="text-align: right"> Nusa Penida </td>
+                                    <td style="text-align: right">{{ $data->travel_package->title }}</td>
                                   </tr>
                                   <tr>
                                     <td>
                                       <strong>Date and Time</strong>
                                     </td>
-                                    <td style="text-align: right"> Thus, 20 Jan, 2019 </td>
+                                    <td style="text-align: right">{{ $data->travel_package->departure_date }}</td>
                                   </tr>
                                 </table>
                               </td>
@@ -251,7 +247,7 @@
                                   <tbody>
                                     <tr>
                                       <td align="center" bgcolor="#FF9E53" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#FF9E53;" valign="middle">
-                                        <p style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </p>
+                                        <a href="{{ url('checkout/' . $data->id ) }}" style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </p>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -310,7 +306,7 @@
                         <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:none;">
                           <tr>
                             <td style="width: 50px;">
-                              <img src="images/ic_support@2x.png" width="50px"></img>
+                              <img src="{{ url('frontend/images/ic_support@2x.png') }}" width="50px"></img>
                             </td>
                             <td style="font-size: 18px; padding-left: 10px; color: #071C4D; font-family: Assistant, Helvetica, Arial, sans-serif"> support@nomads.id <br> 021-2019-2022 </td>
                           </tr>
