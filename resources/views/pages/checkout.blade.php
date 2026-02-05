@@ -27,12 +27,13 @@
                 <div class="col-lg-8 mt-2 pl-lg-0">
                     <div class="card card-details">
                         @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error) 
-                                        <li>{{ $error }}</li>
-                                    @endforeach 
-                                </ul>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                @foreach($errors->all() as $error) 
+                                    <strong>{{ $error }}</strong>
+                                @endforeach 
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                         @endif 
                         <h1>Who is Going?</h1>
