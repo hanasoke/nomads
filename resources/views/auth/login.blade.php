@@ -54,6 +54,9 @@
                             <button type="submit" class="btn btn-login btn-block">
                                 {{ __('Login') }}
                             </button>
+                            <a href="/register" class="btn btn-info btn-block text-decoration-none text-white">
+                                Register 
+                            </a>
                         </form>
                         <p class="text-center mt-4">
                             @if(Route::has('password.request'))
