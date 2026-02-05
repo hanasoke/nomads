@@ -9,9 +9,9 @@
             <div class="section-left col-12 col-md-6">
                 <h1 class="mb-4">We explore the new <br /> life much better</h1>
                 <img 
-                src="frontend/images/login-images.jpg" 
-                alt="" 
-                class="w-75 d-none d-sm-flex" 
+                    src="frontend/images/login-images.jpg" 
+                    alt="" 
+                    class="w-75 d-none d-sm-flex" 
                 />
             </div>
             <div class="section-right col-12 col-md-4">
