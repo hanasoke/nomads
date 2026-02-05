@@ -14,6 +14,9 @@ Use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Midtrans\Config;
+use Midtrans\Snap;
+
 class CheckoutController extends Controller
 {
     public function index(Request $request, $id) 
@@ -104,6 +107,37 @@ class CheckoutController extends Controller
         $transaction->transaction_status = 'PENDING';
 
         $transaction->save();
+
+        // Set konfigurasi midtrans
+        Config::$serverKey = config('midtrans.serverKey');
+        Config::$isProduction = config('midtrans.isProduction');
+        Config::$isSanitized = config('midtrans.isSanitized');
+        Config::$is3ds = config('midtrans.is3ds');
+
+        // Buat array untuk dikirim ke midtrans
+        // $midtrans_params = [
+        //     'transaction_details' => [
+        //         'order_id' => 'TEST-' . $transaction->id,
+        //         'gross_amount' => (int) $transaction->transaction_total
+        //     ],
+        //     'customer_details' => [
+        //         'first_name' => $transaction->user->name,
+        //         'email' => $transaction->user->email, 
+        //     ],
+        //     'enabled_payments' => ['gopay'],
+        //     'vtweb' => []
+        // ];
+
+        // try {
+        //     // Ambil halaman payment midtrans 
+        //     $paymentUrl = Snap::createTransaction($midtrans_params)->redirect_url;
+
+        //     // Redirect ke halaman midtrans
+        //     header('Location: ' . $paymentUrl);
+
+        // } catch (Exception $th) {
+        //     echo $e->getMessage();
+        // }
 
         // return $transaction;
 
