@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <label for="password">{{ _('Password') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Input Your Password">
-                                @error('email')
+                                @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -54,7 +54,7 @@
                             <button type="submit" class="btn btn-login btn-block">
                                 {{ __('Login') }}
                             </button>
-                            <a href="/register" class="btn btn-info btn-block text-decoration-none text-white">
+                            <a href="{{ url('register')}}" class="btn btn-info btn-block text-decoration-none text-white">
                                 Register 
                             </a>
                         </form>
